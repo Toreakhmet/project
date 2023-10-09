@@ -118,10 +118,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static_src'),  # Переименуйте вашу исходную папку статики, например, в 'static_src'
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Это место, куда будут собираться все статические файлы
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
