@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+    <form action="{% url 'home' %}" method="post">
+        {% csrf_token %}
+        <label for="name_sea">Задайте свой вопрос</label>
+        <input name="name_sea" type="text">
+        <button>enter</button>
+    </form>
+    
+    {% for i in ozender%}
+    <p name="name_sea">{{ i.id}}){{ i.name_sea }}</p>
+    <p name="size_sez">{{i.size_sez}}km</p>
+    <p name="description">{{i.description}}</p>
+    {% endfor%}
+    <div id="chat-box">
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Введите ваше сообщение...">
+        <button id="send-btn">Отправить</button>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        setTimeout(function() {
+            window.location.href = '{% url "home" %}';
+        }, 5000); // 5 секунд
+    </script>
+    
+</body>
+</html>
